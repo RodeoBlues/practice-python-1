@@ -18,6 +18,14 @@ class Sequence(metaclass=ABCMeta):
                 return True
             return False
 
+    def __eq__(self, other):
+        if len(self) != len(other):
+            raise ValueError('dimensions must agree.')
+        for j in range(len(self)):
+            if self[j] != other[j]:
+                return False
+        return True
+
     def index(self, val):
         """Return leftmost index at which val is found (or raise ValueError)."""
         for j in range(len(self)):

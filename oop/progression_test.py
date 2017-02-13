@@ -8,7 +8,7 @@ if __name__ == '__main__':
     Progression().print_progression(10)
 
     print('Arithmetic progression with increment 5:')
-    ArithmeticProgression(5).print_progression(10)
+    ArithmeticProgression(5).print_progression(128)
 
     print('Arithmetic progression with increment 5 and start 2:')
     ArithmeticProgression(5, 2).print_progression(10)
@@ -24,3 +24,7 @@ if __name__ == '__main__':
 
     print('Fibonacci progression with start values 4 and 6:')
     FibonacciProgression(4, 6).print_progression(10)
+
+    print('Fibonacci progression with start values 2 and 2:')
+    FibonacciProgression(2, 2).print_progression(8)
+

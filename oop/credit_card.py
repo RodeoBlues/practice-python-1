@@ -1,7 +1,7 @@
 class CreditCard:
     """ A consumer credit card. """
 
-    def __init__(self, customer, bank, acnt, limit):
+    def __init__(self, customer, bank, acnt, limit, balance=0):
         """ Create a new credit card instance.
 
         The initial balance is zero.
@@ -15,7 +15,7 @@ class CreditCard:
         self._bank = bank
         self._account = acnt
         self._limit = limit
-        self._balance = 0
+        self._balance = balance
 
     def get_customer(self):
         """ Return name of the customer. """
@@ -54,6 +54,8 @@ class CreditCard:
         """ Process customer payment that reduces balance. """
         if not isinstance(amount, int):
             raise TypeError('only int is allowed for the amount')
+        if amount < 0:
+            raise ValueError('only positive int is allowed for the amount')
         self._balance -= amount
 
 
@@ -66,7 +68,7 @@ if __name__ == '__main__':
     for val in range(1, 17):
         wallet[0].charge(val)
         wallet[1].charge(2*val)
-        wallet[2].charge(3*val)
+        wallet[2].charge(5001*val)
 
     for c in range(3):
         print('Customer = ', wallet[c].get_customer())
