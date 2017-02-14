@@ -1,8 +1,8 @@
 class Range:
-    """ A class that mimic's the built-in range class. """
+    """A class that mimic's the built-in range class."""
 
     def __init__(self, start, stop=None, step=1):
-        """ Initialize a Range instance.
+        """Initialize a Range instance.
 
         Semantics is similar to built-in range class.
         """
@@ -20,11 +20,11 @@ class Range:
         self._step = step
 
     def __len__(self):
-        """ Return number of entries in the range. """
+        """Return number of entries in the range."""
         return self._length
 
     def __getitem__(self, k):
-        """ Return entry at index k (using standard interpretation if negative). """
+        """Return entry at index k (using standard interpretation if negative)."""
         if k < 0:
             k += len(self)
 
@@ -32,6 +32,10 @@ class Range:
             raise IndexError('index out or range')
 
         return self._start + k * self._step
+
+    def contains(self, k):
+        """Return whether the range contains k or not."""
+        return 0 <= k < self._length
 
 for n in Range(10, None, 2):
     print(n),
